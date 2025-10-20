@@ -1,16 +1,17 @@
 class Product {
-  String _name;
-  double _priceUSD;
-  double _heelHeight; // in cm
-  String _description;
-  String _image;
+  final String name;
+  final double priceUSD;
+  final String image;
+  final String description;
+  final String brand;
+  final double rating;
 
-  Product(this._name, this._priceUSD, this._heelHeight, this._description, this._image);
-
-  // Encapsulation
-  String get name => _name;
-  double get priceUSD => _priceUSD;
-  double get heelHeight => _heelHeight;
-  String get description => _description;
-  String get image => _image;
+  Product({
+    required this.name,
+    required this.priceUSD,
+    required this.image,
+    required this.description,
+    required this.brand,
+    this.rating=4.5
+  });
 }

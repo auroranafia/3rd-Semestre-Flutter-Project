@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
-import 'signup_page.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'home/home_page.dart';
+import 'login_page.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   bool _obscurePassword = true;
+  bool _obscureConfirmPassword = true;
 
+  final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: const Color(0xFFF5E6DA), // soft pink background
       body: Row(
         children: [
-          // LEFT SIDE → image + text
+          // 🌸 LEFT SIDE → image + quote
           Expanded(
             flex: 2,
             child: Container(
@@ -30,18 +34,20 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    "assets/images/white_heels.png", // heels image
+                    "assets/images/white_heels.png",
                     height: 250,
                     fit: BoxFit.contain,
                   ),
                   const SizedBox(height: 30),
-                  const Text(
-                    "Find the perfect pair of heels\nthat match your style and confidence.",
+                  Text(
+                    "Step into elegance.\nFind heels that define your uniqueness.",
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20,
+                    style: GoogleFonts.playfairDisplay(
+                      fontSize: 22,
                       color: Colors.black87,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.w600,
+                      height: 1.5,
+                      letterSpacing: 0.5,
                     ),
                   ),
                 ],
@@ -49,58 +55,80 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
 
-          // RIGHT SIDE → login form
+          // 🩰 RIGHT SIDE → Sign Up Form
           Expanded(
             flex: 3,
             child: Center(
               child: Container(
-                width: 400,
+                width: 420,
                 padding: const EdgeInsets.all(30),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black26,
+                      color: Colors.black26.withOpacity(0.1),
                       blurRadius: 10,
-                      offset: Offset(0, 4),
-                    )
+                      offset: const Offset(0, 4),
+                    ),
                   ],
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Text(
-                      "Sign In",
-                      style: TextStyle(
+                    Text(
+                      "Create Account",
+                      style: GoogleFonts.playfairDisplay(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
+                        color: Colors.black87,
+                        letterSpacing: 1.1,
                       ),
                     ),
                     const SizedBox(height: 30),
 
-                    // Email field
+                    // 🪞 Full Name
                     TextField(
-                      controller: emailController,
-                      decoration: const InputDecoration(
-                        labelText: "Email Address",
-                        border: OutlineInputBorder(),
+                      controller: nameController,
+                      decoration: InputDecoration(
+                        labelText: "Full Name",
+                        labelStyle: const TextStyle(color: Colors.black54),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
                     ),
                     const SizedBox(height: 20),
 
-                    // Password field with show/hide
+                    // 📧 Email
+                    TextField(
+                      controller: emailController,
+                      decoration: InputDecoration(
+                        labelText: "Email Address",
+                        labelStyle: const TextStyle(color: Colors.black54),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+
+                    // 🔐 Password
                     TextField(
                       controller: passwordController,
                       obscureText: _obscurePassword,
                       decoration: InputDecoration(
                         labelText: "Password",
-                        border: const OutlineInputBorder(),
+                        labelStyle: const TextStyle(color: Colors.black54),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obscurePassword
                                 ? Icons.visibility_off
                                 : Icons.visibility,
+                            color: Colors.grey.shade600,
                           ),
                           onPressed: () {
                             setState(() {
@@ -110,19 +138,51 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 20),
+
+                    // 🔐 Confirm Password
+                    TextField(
+                      controller: confirmPasswordController,
+                      obscureText: _obscureConfirmPassword,
+                      decoration: InputDecoration(
+                        labelText: "Confirm Password",
+                        labelStyle: const TextStyle(color: Colors.black54),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _obscureConfirmPassword
+                                ? Icons.visibility_off
+                                : Icons.visibility,
+                            color: Colors.grey.shade600,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _obscureConfirmPassword = !_obscureConfirmPassword;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
                     const SizedBox(height: 30),
 
-                    // Login button
+                    // 🩷 Create Account Button
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.pinkAccent,
                           padding: const EdgeInsets.symmetric(vertical: 15),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
                         ),
                         onPressed: () {
-                          if (emailController.text == "test@gmail.com" &&
-                              passwordController.text == "12345") {
+                          if (passwordController.text ==
+                                  confirmPasswordController.text &&
+                              emailController.text.isNotEmpty &&
+                              nameController.text.isNotEmpty) {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
@@ -132,13 +192,16 @@ class _LoginPageState extends State<LoginPage> {
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                content: Text("Invalid email or password"),
+                                content: Text(
+                                  "Please check your inputs. Passwords must match.",
+                                ),
+                                backgroundColor: Colors.pinkAccent,
                               ),
                             );
                           }
                         },
                         child: const Text(
-                          "Login",
+                          "Create Account",
                           style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ),
@@ -146,24 +209,27 @@ class _LoginPageState extends State<LoginPage> {
 
                     const SizedBox(height: 15),
 
-                    // link to SignUp page
+                    // 🔗 Login Redirect
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text("Don't have an account? "),
+                        const Text(
+                          "Already have an account? ",
+                          style: TextStyle(color: Colors.black87),
+                        ),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (_) => const SignUpPage(),
+                                builder: (_) => const LoginPage(),
                               ),
                             );
                           },
                           child: const Text(
-                            "Sign Up",
+                            "Login",
                             style: TextStyle(
-                              color: Colors.pink,
+                              color: Colors.pinkAccent,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

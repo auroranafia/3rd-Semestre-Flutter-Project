@@ -34,6 +34,12 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  lucide_icons: ^0.257.0
+  google_fonts: ^6.2.1
+  flutter_rating_bar: ^4.0.1
+  qr_flutter: ^4.1.0
+
+
 
 dev_dependencies:
   flutter_test:
@@ -57,13 +63,42 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/images/jimmy_choo.png
-    - assets/images/logo.png
-    - assets/images/louboutin.png
+    - assets/images/Jimmy_choo/jimmy_choo.png
+    - assets/images/logo/jimmy_logo.png
+    - assets/images/Jimmy_choo/love_pumps.png
+    - assets/images/Jimmy_choo/minny.png
+    - assets/images/Jimmy_choo/romy.png
+    - assets/images/Jimmy_choo/sacora_sandals.png
+    - assets/images/logo/logo.png
+    - assets/images/logo/louboutin_logo.png
+    - assets/images/christian_louboutin/louboutin.png
+    - assets/images/christian_louboutin/follies_strash.png
+    - assets/images/christian_louboutin/hot_chick.png
+    - assets/images/christian_louboutin/Iraze.png
+    - assets/images/christian_louboutin/pigalle_folies.png
     - assets/images/white_heels.png
-    - assets/images/ysl.png
-    
-
+    - assets/images/YSL/ysl.png
+    - assets/images/YSL/blade_heels.png
+    - assets/images/YSL/tribute_sandals.png
+    - assets/images/logo/manolo_logo.png
+    - assets/images/manolo_blahnik/chaos_sandals.png
+    - assets/images/manolo_blahnik/hangisi.png
+    - assets/images/manolo_blahnik/maysale.png
+    - assets/images/logo/prada_logo.png  
+    - assets/images/prada/cleo_sandals.png
+    - assets/images/prada/slingback_pumps.png
+    - assets/images/logo/gucci_logo.png
+    - assets/images/gucci/horsebit_pumps.png
+    - assets/images/gucci/marmont_sandals.png
+    - assets/images/gucci/sylvie.png
+    - assets/images/logo/ysl_logo.png  
+    - assets/images/logo/valentino_logo.png
+    - assets/images/valentino/rockstud_pumps.png
+    - assets/images/valentino/rockstud_sandals.png
+    - assets/images/valentino/vlogo_slingbacks.png
+    - assets/images/hero1.png
+    - assets/images/hero2.png
+    - assets/images/hero3.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

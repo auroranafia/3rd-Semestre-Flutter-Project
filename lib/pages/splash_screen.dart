@@ -33,13 +33,13 @@ class _SplashScreenState extends State<SplashScreen> {
             const SizedBox(), // kosongin bagian atas
             Center(
               child: Image.asset(
-                "assets/images/logo.png",
+                "assets/images/logo/logo.png",
                 width: 320, 
                 fit: BoxFit.contain, 
               ),
             ),
             const Text(
-              "Credit By: Aurora Ilmannafia",
+              " © 2025 Aurora Ilmannafia",
               style: TextStyle(fontSize: 16, color: Colors.black54),
             ),
           ],
